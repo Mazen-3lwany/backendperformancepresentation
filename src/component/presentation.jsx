@@ -20,9 +20,9 @@ const BackgroundPattern = ({  gradient }) => {
 
   return (
     <>
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+      <div className={`absolute inset-0 bg-linear-to-br ${gradient}`} />
       {patterns.dots}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-black/20 via-transparent to-transparent" />
     </>
   );
 };
@@ -68,7 +68,7 @@ const ProgressBar = ({ current, total }) => {
   return (
     <div className="absolute top-0 left-0 right-0 h-1.5 bg-black/30 backdrop-blur-sm">
       <motion.div
-        className={`h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 shadow-lg`}
+        className={`h-full bg-linear-to-br from-purple-500 via-pink-500 to-purple-500 shadow-lg`}
         initial={{ width: "0%" }}
         animate={{ width: `${((current + 1) / total) * 100}%` }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
@@ -174,13 +174,13 @@ export default function Presentation() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white flex items-center justify-center p-4 md:p-8 overflow-hidden relative">
+    <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-black text-white flex items-center  justify-center p-4 md:p-8 overflow-hidden relative">
       {/* Animated background elements */}
       <FloatingParticles />
       
       {/* Dynamic glowing orbs */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px]"
+        className="absolute top-1/4 left-1/4 w-125 h-125 bg-purple-600/15 rounded-full blur-[120px]"
         animate={{
           x: mousePosition.x * 3,
           y: mousePosition.y * 3,
@@ -198,7 +198,7 @@ export default function Presentation() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px]"
+        className="absolute bottom-1/4 right-1/4 w-125 h-125 bg-blue-600/15 rounded-full blur-[120px]"
         animate={{
           x: -mousePosition.x * 3,
           y: -mousePosition.y * 3,
@@ -224,7 +224,7 @@ export default function Presentation() {
       >
         <ProgressBar current={index} total={slides.length} gradient={slide.gradient} />
 
-        <Card className="bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative">
+        <Card className="bg-linear-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative">
           {/* Slide background pattern */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -277,7 +277,7 @@ export default function Presentation() {
                   
                   <div className="flex-1">
                     <motion.h1
-                      className="text-4xl md:text-6xl font-black mb-3 bg-gradient-to-r from-white via-white to-gray-200 bg-clip-text text-transparent leading-tight"
+                      className="text-4xl md:text-6xl font-black mb-3 bg-linear-to-br from-white via-white to-gray-200 bg-clip-text text-transparent leading-tight"
                       initial={{ opacity: 0, y: -30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
@@ -352,7 +352,7 @@ export default function Presentation() {
                   animate={{ rotate: 180, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <div className={`w-full h-full bg-gradient-to-br ${slide.gradient} rounded-full`} />
+                  <div className={`w-full h-full bg-linear-to-br ${slide.gradient} rounded-full`} />
                 </motion.div>
               </motion.div>
             </AnimatePresence>

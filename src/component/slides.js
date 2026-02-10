@@ -1,4 +1,4 @@
- import { ChevronLeft, ChevronRight, Zap, Database, Gauge, Lock, Cpu, CloudCog, Activity, Layers, Trophy, Lightbulb, Sparkles, ArrowRight } from "lucide-react";
+ import {  Zap, Database, Gauge, Lock, Cpu, CloudCog, Activity, Layers, Trophy, Lightbulb, Sparkles, ArrowRight } from "lucide-react";
  const slides = [
   {
     title: "Increasing Backend Performance",
